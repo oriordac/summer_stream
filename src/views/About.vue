@@ -5,6 +5,7 @@
     <section class="section">
     <!-- Form to search for movie by title -->
     <label class="label">Azure API Test</label>
+    
     <div class="field">
       <div class="control">
         <input class="input" type="text" placeholder="Text Input" v-model="query">
@@ -19,11 +20,12 @@
       <hr>
     </div>
     </section>
-    
+
   </div>
 </template>
 
 <script>
+
 export default {
   data: () => ({
     query: "",
