@@ -4,7 +4,7 @@
 
     <section class="section">
     <!-- Form to search for movie by title -->
-    <label class="label">Amazon API Test</label>
+    <label class="label">Azure API Test</label>
     <div class="field">
       <div class="control">
         <input class="input" type="text" placeholder="Text Input" v-model="query">
@@ -14,8 +14,8 @@
       </div>
     </div>
     <!-- Notification containing info from a successful API call -->
-    <div class="notification" v-if="typeof movie.Data != 'undefined'">
-      <div class="level-item title">{{ movie.Data }}</div>
+    <div class="notification" v-if="typeof movie.stream_service != 'undefined'">
+      <div class="level-item title">{{ movie.stream_service }}</div>
       <hr>
     </div>
     </section>
@@ -28,11 +28,11 @@ export default {
   data: () => ({
     query: "",
     movie: {},
-    url_base: "https://vzafhox7zf.execute-api.us-east-2.amazonaws.com/dev/se3/",
+    url_base: "http://summerstream.azurewebsites.net/index.php",
   }),
   methods: {
     fetchMovie () {
-      fetch(`${this.url_base}?name=${this.query}`)
+      fetch(`${this.url_base}?movie_title=${this.query}`)
       .then(res => res.json())
       .then(body => this.setResults(body));
     },
