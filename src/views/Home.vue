@@ -18,6 +18,7 @@
                                   </a>
                                 </div>
                             </div>
+                            <p class="is-3 content" v-if="movie.Message">{{movie.Message}}</p>
                         </div>
                     </div>
                     <!--Display Results-->
@@ -71,7 +72,6 @@ export default {
   data: () => ({
     query:"",
     movie: {},
-    url_base:"https://73mj0phrya.execute-api.us-east-2.amazonaws.com/dev/movie",
     example:{
       TitleData:"SAMPLE MOVIE SEARCH",
       PosterData: "https://resizing.flixster.com/4MrL62heb7yBgBt8zllSeqNZxg4=/206x305/v2/https://flxt.tmsimg.com/assets/p7825626_p_v10_af.jpg",
@@ -80,7 +80,7 @@ export default {
   }),
   methods: {
       fetchMovie() {
-        fetch(`${this.url_base}?title=${this.query.toUpperCase()}`)
+        fetch(`${process.env.VUE_APP_API_GET_ROOT}?title=${this.query.toUpperCase()}`)
           .then(response => response.json())
           .then(data => this.movie = data);
       }
