@@ -26,7 +26,7 @@ Project is created with:
 * Vue
 	
 ## Setup
-The Vue app is hosted on Github pages for demo purposes.
+The [Vue app is hosted on Github pages](https://oriordac.github.io/AWS-Movie-Vue-App/) for demo purposes.
 Sample AWS Lambda functions are provided in the repo, but these files will need to be update to accommodate personal use and other projects. For PuppeteerJS, we encourage you to visit the [PuppeteerJS Github account](https://github.com/puppeteer/puppeteer) for more information and demonstrations.
 
 Below is the standard Vue project setup.
