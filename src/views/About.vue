@@ -1,46 +1,43 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-
+<div id="about" class="has-background-dark">
     <section class="section">
-    <!-- Form to search for movie by title -->
-    <label class="label">Azure API Test</label>
-    
-    <div class="field">
-      <div class="control">
-        <input class="input" type="text" placeholder="Text Input" v-model="query">
-      </div>
-      <div class="control">
-        <a class="button is-info" @click="fetchMovie">Search</a>
-      </div>
-    </div>
-    <!-- Notification containing info from a successful API call -->
-    <div class="notification" v-if="typeof movie.stream_service != 'undefined'">
-      <div class="level-item title">{{ movie.stream_service }}</div>
-      <hr>
-    </div>
+        <div class="columns">
+            <div class="column is-one-quarter-desktop"></div>
+            <div class="column is-full-mobile is-three-quarters-tablet is-half-desktop">
+                <div class="box">
+                    <div class="columns">
+                        <div class="column is-full has-text-centered">
+                            <h1 class="title is-1 has-text-dark">About Us</h1>
+                        </div>
+                    </div>
+                    <section class="section">
+                        <div class="columns">
+                            <div class="column is-full has-text-left">
+                              <div class="content" v-for="student in students" :key="student.name">
+                                <h2 class="title">{{student.name}}</h2>
+                                <h3 class="subtitle">Computer Science Graduate Student</h3>
+                                <p>{{student.description}}</p>
+                                <address>
+                                  <p>{{student.email}}</p>
+                                </address>
+                              </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="column is-one-quarter-desktop"></div>
+        </div>
     </section>
-
-  </div>
+</div>
 </template>
 
 <script>
-
+import about from '../models/about'
 export default {
+ 
   data: () => ({
-    query: "",
-    movie: {},
-    url_base: "http://summerstream.azurewebsites.net/index.php",
-  }),
-  methods: {
-    fetchMovie () {
-      fetch(`${this.url_base}?movie_title=${this.query}`)
-      .then(res => res.json())
-      .then(body => this.setResults(body));
-    },
-    setResults (results) {
-      this.movie = results;
-    }
-  }
+    students: about.about
+  })
 }
 </script>
